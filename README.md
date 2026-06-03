@@ -1,16 +1,34 @@
 # arch-bootstrap
 
-Personal post-install bootstrap framework for Arch Linux.
+Personal Arch Linux post-install bootstrap framework.
 
-## Goals
+## Purpose
 
-- Deploy dotfiles
+arch-bootstrap automates post-install configuration after a successful
+Arch Linux installation.
+
+It is designed to:
+
 - Install packages
-- Configure shell environment
+- Configure user environment
+- Deploy personal dotfiles
 - Configure development tools
-- Install optional applications
+- Install optional software
 - Remain modular and idempotent
 
-## Status
+## Project Status
 
-Work in progress.
+Planning
+
+## Planned Structure
+
+scripts/
+├── bootstrap.sh
+├── packages.sh
+├── dotfiles.sh
+├── fonts.sh
+├── shell.sh
+└── git.sh
+
+docs/
+└── README.md
