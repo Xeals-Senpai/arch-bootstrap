@@ -62,7 +62,8 @@ echo "Executing modules..."
 echo
 
 for module in "${REPO_ROOT}"/modules/*.sh; do
-    bash "${module}"
+    #shellcheck disable=SC1090
+    source "${module}"
 done
 
 echo
