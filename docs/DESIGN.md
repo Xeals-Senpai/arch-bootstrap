@@ -13,7 +13,7 @@ It assumes Arch Linux has already been installed by arch-installer.
 - Configure shell environment
 - Configure desktop utilities
 - Configure Git
-- Apply machine-specific profiles
+- Apply user-selected profiles
 
 ## Non-Responsibilities
 
