@@ -1,0 +1,10 @@
+blueman
+signal-desktop
+nemo
+file-roller
+nemo-fileroller
+nemo-preview
+nemo-terminal
+gvfs
+gvfs-smb
+code

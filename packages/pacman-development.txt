@@ -1,0 +1,8 @@
+github-cli
+docker
+ansible
+terraform
+jq
+yq
+shellcheck
+yamllint

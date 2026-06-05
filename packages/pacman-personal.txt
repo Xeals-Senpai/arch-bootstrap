@@ -1,0 +1,13 @@
+zsh
+starship
+openssh
+fastfetch
+noto-fonts
+noto-fonts-cjk
+noto-fonts-emoji
+ttf-jetbrains-mono-nerd
+unzip
+p7zip
+rsync
+ripgrep
+fd
