@@ -37,7 +37,7 @@ and optional user environment setup.
 - Configure the user environment
 - Remain modular
 - Remain idempotent
-- Stay suitable for the ThinkPad X230 and future machines
+- Stay suitable for current and future machines
 
 ## Planned Structure
 
