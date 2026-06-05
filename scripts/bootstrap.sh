@@ -5,9 +5,9 @@ set -euo pipefail
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 REPO_ROOT="$(cd "${SCRIPT_DIR}/.." && pwd)"
 
-#shellcheck disable=SC1091
+# shellcheck disable=SC1091
 source "${REPO_ROOT}/lib/logging.sh"
-#shellcheck disable=SC1091
+# shellcheck disable=SC1091
 source "${REPO_ROOT}/lib/common.sh"
 
 PROFILE="${1:-default}"
@@ -62,7 +62,7 @@ echo "Executing modules..."
 echo
 
 for module in "${REPO_ROOT}"/modules/*.sh; do
-    #shellcheck disable=SC1090
+    # shellcheck disable=SC1090
     source "${module}"
 done
 
