@@ -19,6 +19,8 @@ Includes:
 - Discord
 - Signal
 - Spotify
+- Spicetify
+- WhatsApp web app
 - VS Code
 - Nemo
 - Development tools
