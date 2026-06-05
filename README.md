@@ -44,10 +44,13 @@ and optional user environment setup.
     arch-bootstrap/
     ├── config/
     ├── docs/
+    ├── lib/
     ├── modules/
     ├── packages/
+    ├── profiles/
     ├── scripts/
     │   └── bootstrap.sh
+    ├── .gitattributes
     ├── .gitignore
     ├── LICENSE
     └── README.md
