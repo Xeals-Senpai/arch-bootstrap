@@ -4,12 +4,16 @@ set -euo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 REPO_ROOT="$(cd "${SCRIPT_DIR}/.." && pwd)"
+
+#shellcheck disable=SC1091
 source "${REPO_ROOT}/lib/logging.sh"
+#shellcheck disable=SC1091
 source "${REPO_ROOT}/lib/common.sh"
 
 PROFILE="${1:-default}"
 PROFILE_FILE="${REPO_ROOT}/profiles/${PROFILE}.conf"
 
+echo
 echo "arch-bootstrap"
 echo "=============="
 echo
@@ -53,4 +57,13 @@ echo "  70-git"
 echo "  90-cleanup"
 echo
 
-echo "Bootstrap skeleton complete."
+echo
+echo "Executing modules..."
+echo
+
+for module in "${REPO_ROOT}"/modules/*.sh; do
+    bash "${module}"
+done
+
+echo
+echo "Bootstrap complete."
