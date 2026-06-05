@@ -1,1 +1,4 @@
 yay
+spotify-launcher
+spicetify-cli
+vesktop
