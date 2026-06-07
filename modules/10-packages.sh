@@ -19,3 +19,10 @@ echo "Pacman package files selected:"
 for package_file in "${PACMAN_PACKAGE_FILES[@]}"; do
     echo "  - ${package_file}"
 done
+
+echo
+echo "Pacman packages selected:"
+
+for package_file in "${PACMAN_PACKAGE_FILES[@]}"; do
+    read_package_file "${package_file}"
+done
