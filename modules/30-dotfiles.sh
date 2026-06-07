@@ -1,31 +1,33 @@
 #!/usr/bin/env bash
 
-echo "[MODULE] 30-dotfiles"
+set -euo pipefail
 
-DOTFILES_REPO="https://github.com/Xeals-Senpai/arch-dotfiles.git"
-DOTFILES_DIR="${HOME}/Git/arch-dotfiles"
+USER_ENV="${REPO_ROOT}/config/user/user.env"
 
-echo "Dotfiles repository:"
-echo "  ${DOTFILES_REPO}"
+info "Deploying dotfiles"
 
-echo
-echo "Repository location:"
-echo "  ${DOTFILES_DIR}"
-
-echo
-echo "Planned actions:"
-
-if [[ -d "${DOTFILES_DIR}" ]]; then
-    echo "  - Repository exists"
-    echo "  - Pull latest changes"
-else
-    echo "  - Repository missing"
-    echo "  - Clone repository"
+if [[ ! -f "${USER_ENV}" ]]; then
+    warn "User config not found"
+    exit 0
 fi
 
-echo "  - Deploy .config files"
-echo "  - Deploy Zsh configuration"
-echo "  - Deploy Starship configuration"
-echo "  - Deploy Kitty configuration"
-echo "  - Deploy Neovim configuration"
-echo "  - Deploy Waybar configuration"
+# shellcheck source=/dev/null
+source "${USER_ENV}"
+
+if [[ -z "${DOTFILES_REPO:-}" ]]; then
+    warn "DOTFILES_REPO not configured"
+    exit 0
+fi
+
+if [[ -z "${DOTFILES_DIR:-}" ]]; then
+    warn "DOTFILES_DIR not configured"
+    exit 0
+fi
+
+if [[ ! -d "${DOTFILES_DIR}/.git" ]]; then
+    run_cmd git clone "${DOTFILES_REPO}" "${DOTFILES_DIR}"
+else
+    run_cmd git -C "${DOTFILES_DIR}" pull
+fi
+
+success "Dotfiles deployment complete"
