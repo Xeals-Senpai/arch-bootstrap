@@ -10,7 +10,7 @@ Install pacman packages.
 
 ## 20-aur
 
-Install yay and AUR packages.
+Install AUR packages using yay.
 
 ## 30-dotfiles
 
@@ -18,11 +18,13 @@ Deploy personal dotfiles.
 
 ## 40-fonts
 
-Install user fonts.
+Verifies installed user fonts.
 
 ## 50-shell
 
-Configure Zsh and Starship.
+Verifies zsh
+Verifies starship
+Sets default shell
 
 ## 60-desktop
 

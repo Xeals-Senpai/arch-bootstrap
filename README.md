@@ -39,7 +39,7 @@ and optional user environment setup.
 - Remain idempotent
 - Stay suitable for current and future machines
 
-## Planned Structure
+## Repository Structure
 
     arch-bootstrap/
     ├── config/
@@ -57,4 +57,36 @@ and optional user environment setup.
 
 ## Current Status
 
-Foundation stage.
+Project status: Feature Complete (Pre-Validation)
+
+### Implemented Modules
+
+| Module       | Status   |
+| ------------ | -------- |
+| 00-preflight | Complete |
+| 10-packages  | Complete |
+| 20-aur       | Complete |
+| 30-dotfiles  | Complete |
+| 40-fonts     | Complete |
+| 50-shell     | Complete |
+| 60-desktop   | Complete |
+| 70-git       | Complete |
+| 90-cleanup   | Complete |
+
+### Implemented Features
+
+* Profile-based deployment
+* Dry-run support
+* User configuration via `user.env`
+* Pacman package installation
+* AUR package installation
+* Dotfiles deployment
+* Font configuration
+* Shell configuration
+* Desktop configuration
+* Git configuration
+* Cleanup and finalisation
+
+### Next Milestone
+
+Perform the first full bootstrap run on a real Arch Linux installation and validate the complete workflow.

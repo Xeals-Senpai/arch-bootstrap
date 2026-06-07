@@ -6,7 +6,7 @@ A profile does not represent hardware.
 
 A profile represents the intended role of the machine.
 
-## Planned Profiles
+## Available Profiles
 
 ### workstation
 
