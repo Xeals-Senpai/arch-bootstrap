@@ -9,7 +9,7 @@ info "Configuring Git"
 if [[ ! -f "${USER_ENV}" ]]; then
     warn "User config not found: ${USER_ENV}"
     warn "Copy config/user/user.env.example to config/user/user.env and customise it."
-    exit 0
+    return 0
 fi
 
 # shellcheck source=/dev/null
