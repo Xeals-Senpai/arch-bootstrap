@@ -24,5 +24,5 @@ echo
 echo "Pacman packages selected:"
 
 for package_file in "${PACMAN_PACKAGE_FILES[@]}"; do
-    read_package_file "${package_file}"
+    install_pacman_package_file "${package_file}"
 done
