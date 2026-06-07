@@ -2,6 +2,11 @@
 
 echo "[MODULE] 00-preflight"
 
+if [[ "${SKIP_PREFLIGHT:-false}" == "true" ]]; then
+    echo "Skipping preflight checks."
+    return 0
+fi
+
 if ! check_not_root; then
     echo "Error: do not run as root."
     exit 1
