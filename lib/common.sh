@@ -7,3 +7,11 @@ command_exists() {
 is_true() {
     [[ "${1:-false}" == "true" ]]
 }
+
+run_cmd() {
+    if is_true "${DRY_RUN:-false}"; then
+        echo "[DRY-RUN] $*"
+    else
+        "$@"
+    fi
+}
