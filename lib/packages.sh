@@ -8,7 +8,7 @@ read_package_file() {
         exit 1
     fi
 
-    grep -vE '^\s*#|^\s*$' "${package_file}"
+    grep -vE '^\s*#|^\s*$' "${package_file}" || true
 }
 
 install_pacman_package_file() {
@@ -23,4 +23,18 @@ install_pacman_package_file() {
 
     # shellcheck disable=SC2024
     sudo pacman -S --needed - < <(read_package_file "${package_file}")
+    
+}
+
+install_aur_package_file() {
+    local package_file="$1"
+
+    echo "Installing AUR packages from: ${package_file}"
+
+    if [[ "${DRY_RUN:-false}" == "true" ]]; then
+        read_package_file "${package_file}"
+        return 0
+    fi
+
+    yay -S --needed - < <(read_package_file "${package_file}")
 }
