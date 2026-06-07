@@ -4,6 +4,11 @@ set -euo pipefail
 
 info "Configuring desktop environment"
 
+if ! is_true "${INSTALL_DESKTOP:-false}" && ! is_true "${INSTALL_BLUETOOTH:-false}" && ! is_true "${INSTALL_FILEMANAGER:-false}"; then
+    info "Desktop configuration disabled for this profile"
+    return 0
+fi
+
 DESKTOP_COMMANDS=(
     "sway"
     "waybar"

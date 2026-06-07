@@ -47,6 +47,8 @@ echo "  INSTALL_FILEMANAGER=${INSTALL_FILEMANAGER}"
 echo "  INSTALL_DEVELOPMENT=${INSTALL_DEVELOPMENT}"
 echo "  INSTALL_POWERTOOLS=${INSTALL_POWERTOOLS}"
 echo "  INSTALL_AUR=${INSTALL_AUR}"
+echo "  INSTALL_AUR_OPTIONAL=${INSTALL_AUR_OPTIONAL}"
+echo "  INSTALL_DESKTOP=${INSTALL_DESKTOP}"
 echo
 
 echo "Planned module order:"
@@ -68,7 +70,9 @@ echo
 for module in "${REPO_ROOT}"/modules/*.sh; do
     # shellcheck disable=SC1090
     source "${module}"
+    echo
 done
 
 echo
 echo "Bootstrap complete."
+echo

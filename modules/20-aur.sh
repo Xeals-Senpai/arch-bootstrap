@@ -4,6 +4,11 @@ set -euo pipefail
 
 info "Installing AUR packages"
 
+if ! is_true "${INSTALL_AUR:-false}"; then
+    info "AUR installation disabled for this profile"
+    return 0
+fi
+
 AUR_FILES=(
     "${REPO_ROOT}/packages/aur-base.txt"
 )
