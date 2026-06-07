@@ -9,6 +9,10 @@ REPO_ROOT="$(cd "${SCRIPT_DIR}/.." && pwd)"
 source "${REPO_ROOT}/lib/logging.sh"
 # shellcheck disable=SC1091
 source "${REPO_ROOT}/lib/common.sh"
+# shellcheck disable=SC1091
+source "${REPO_ROOT}/lib/packages.sh"
+# shellcheck disable=SC1091
+source "${REPO_ROOT}/lib/checks.sh"
 
 PROFILE="${1:-default}"
 PROFILE_FILE="${REPO_ROOT}/profiles/${PROFILE}.conf"
