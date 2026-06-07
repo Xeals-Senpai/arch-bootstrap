@@ -29,7 +29,7 @@ done
 
 if [[ "${#PACKAGES[@]}" -eq 0 ]]; then
     warn "No pacman packages selected"
-    exit 0
+    return 0
 fi
 
 info "Pacman packages selected:"

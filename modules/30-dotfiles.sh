@@ -8,7 +8,7 @@ info "Deploying dotfiles"
 
 if [[ ! -f "${USER_ENV}" ]]; then
     warn "User config not found"
-    exit 0
+    return 0
 fi
 
 # shellcheck source=/dev/null
@@ -16,12 +16,12 @@ source "${USER_ENV}"
 
 if [[ -z "${DOTFILES_REPO:-}" ]]; then
     warn "DOTFILES_REPO not configured"
-    exit 0
+    return 0
 fi
 
 if [[ -z "${DOTFILES_DIR:-}" ]]; then
     warn "DOTFILES_DIR not configured"
-    exit 0
+    return 0
 fi
 
 if [[ ! -d "${DOTFILES_DIR}/.git" ]]; then
