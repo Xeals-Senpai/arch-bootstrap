@@ -15,19 +15,39 @@ fi
 source "${USER_ENV}"
 
 if [[ -z "${DOTFILES_REPO:-}" ]]; then
-    warn "DOTFILES_REPO not configured"
-    return 0
+    error "DOTFILES_REPO is not configured"
+    return 1
 fi
 
 if [[ -z "${DOTFILES_DIR:-}" ]]; then
-    warn "DOTFILES_DIR not configured"
-    return 0
+    error "DOTFILES_DIR is not configured"
+    return 1
 fi
 
-if [[ ! -d "${DOTFILES_DIR}/.git" ]]; then
-    run_cmd git clone "${DOTFILES_REPO}" "${DOTFILES_DIR}"
+info "Deploying dotfiles"
+
+run_cmd mkdir -p "$HOME/.config"
+
+deployed=0
+
+if [[ -d "$DOTFILES_DIR/.config" ]]; then
+    run_cmd cp -r "$DOTFILES_DIR/.config/." "$HOME/.config/"
+    deployed=1
 else
-    run_cmd git -C "${DOTFILES_DIR}" pull
+    warn "No .config directory found in dotfiles repo"
 fi
 
-success "Dotfiles deployment complete"
+for file in .zshrc .zshenv .zlogin; do
+    if [[ -f "$DOTFILES_DIR/$file" ]]; then
+        run_cmd cp "$DOTFILES_DIR/$file" "$HOME/$file"
+        deployed=1
+    else
+        warn "Missing dotfile: $file"
+    fi
+done
+
+if [[ "$deployed" -eq 1 ]]; then
+    success "Dotfiles deployment complete"
+else
+    warn "No dotfiles were deployed"
+fi

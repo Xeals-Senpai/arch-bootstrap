@@ -13,6 +13,11 @@ source "${REPO_ROOT}/lib/common.sh"
 source "${REPO_ROOT}/lib/packages.sh"
 # shellcheck disable=SC1091
 source "${REPO_ROOT}/lib/checks.sh"
+# shellcheck disable=SC1091
+source "${REPO_ROOT}/lib/user-env.sh"
+
+load_user_env
+validate_user_env
 
 PROFILE="${1:-default}"
 PROFILE_FILE="${REPO_ROOT}/profiles/${PROFILE}.conf"
@@ -75,4 +80,18 @@ done
 
 echo
 echo "Bootstrap complete."
+echo
+
+echo
+success "Bootstrap completed successfully"
+echo
+echo "Next steps:"
+echo "  1. Log out and log back in"
+echo "  2. Confirm Sway starts automatically"
+echo "  3. Check Waybar, Kitty, Wofi, Mako, and Git"
+echo
+echo "Useful checks:"
+echo "  echo \$SHELL"
+echo "  git --no-pager config --global --list"
+echo "  ls -la ~/.config"
 echo

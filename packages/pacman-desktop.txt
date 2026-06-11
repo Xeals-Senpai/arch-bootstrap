@@ -3,8 +3,12 @@ signal-desktop
 nemo
 file-roller
 nemo-fileroller
-nemo-preview
 nemo-terminal
 gvfs
 gvfs-smb
 code
+zsh-autosuggestions
+zsh-syntax-highlighting
+zsh-history-substring-search
+pkgfile
+less
