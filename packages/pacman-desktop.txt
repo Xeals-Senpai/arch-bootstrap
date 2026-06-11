@@ -1,4 +1,6 @@
 blueman
+bluez
+bluez-utils
 signal-desktop
 nemo
 file-roller
