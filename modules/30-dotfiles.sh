@@ -26,6 +26,13 @@ fi
 
 info "Deploying dotfiles"
 
+mkdir -p "$(dirname "$DOTFILES_DIR")"
+
+if [[ ! -d "$DOTFILES_DIR/.git" ]]; then
+    info "Cloning dotfiles repository"
+    run_cmd git clone "$DOTFILES_REPO" "$DOTFILES_DIR"
+fi
+
 run_cmd mkdir -p "$HOME/.config"
 
 deployed=0
