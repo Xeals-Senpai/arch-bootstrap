@@ -14,7 +14,7 @@ Install AUR packages using yay.
 
 ## 30-dotfiles
 
-Deploy personal dotfiles.
+Deploy personal dotfiles repository and update existing clones.
 
 ## 40-fonts
 
@@ -28,7 +28,12 @@ Sets default shell
 
 ## 60-desktop
 
-Configure desktop utilities.
+Verify desktop applications and enable required desktop services.
+
+Examples:
+
+- NetworkManager
+- Bluetooth
 
 ## 70-git
 

@@ -19,6 +19,17 @@ Documents the internal architecture and execution flow of the bootstrap framewor
 
 ## Project Status
 
-The bootstrap framework and planned modules have been implemented.
+The bootstrap framework has been validated on a real Arch Linux installation.
 
-Documentation will continue to evolve alongside future validation, testing, and feature additions.
+Current functionality includes:
+
+- Pacman package installation
+- AUR package installation
+- Dotfile deployment
+- Font configuration
+- Zsh and Starship configuration
+- Desktop environment setup
+- Git configuration
+- Profile-based installation
+
+Documentation will continue to evolve alongside future improvements and new features.

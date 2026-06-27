@@ -296,6 +296,33 @@ Reason:
 | 70-git       | Complete |
 | 90-cleanup   | Complete |
 
-## Next Milestone
+## Validation Status
 
-Perform the first full bootstrap run on a real Arch Linux installation and validate the complete workflow.
+arch-bootstrap has been successfully validated on a real Arch Linux installation using the following workflow:
+
+arch-installer
+    ↓
+First boot
+    ↓
+arch-bootstrap
+    ↓
+Automatic Sway session
+    ↓
+Kitty terminal
+    ↓
+Zsh + Starship
+    ↓
+Configured user environment
+
+Validation confirmed:
+
+- Package installation
+- AUR installation
+- Dotfile deployment
+- Font configuration
+- Zsh default shell assignment
+- Desktop service configuration
+- Git configuration
+- Automatic Sway startup
+
+Future work focuses on additional features and quality-of-life improvements rather than initial validation.
