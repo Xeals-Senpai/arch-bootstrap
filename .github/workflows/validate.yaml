@@ -1,0 +1,32 @@
+name: Validate Observability Lab
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Validate Prometheus Docker Compose
+        run: docker compose -f prometheus/docker-compose.yml config
+
+      - name: Validate Grafana Docker Compose
+        run: docker compose -f grafana/docker-compose.yml config
+
+      - name: Validate Prometheus config
+        run: |
+          docker run --rm \
+            -v "$PWD/prometheus:/etc/prometheus" \
+            prom/prometheus:latest \
+            promtool check config /etc/prometheus/prometheus.yml
+
+      - name: Validate Grafana dashboard JSON
+        run: |
+          python -m json.tool grafana/dashboards/windows-dashboard.json > /dev/null
