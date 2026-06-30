@@ -28,5 +28,9 @@ jobs:
       - name: Validate required files
         run: |
           test -f README.md
-          test -f bootstrap.sh
+          test -f scripts/bootstrap.sh
           test -d modules
+          test -d profiles
+          test -d packages
+          test -d config
+          test -d lib
