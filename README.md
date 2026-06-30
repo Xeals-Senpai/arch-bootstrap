@@ -2,6 +2,8 @@
 
 Personal Arch Linux post-install bootstrap framework.
 
+![CI](https://github.com/Xeals-Senpai/arch-bootstrap/actions/workflows/validate.yaml/badge.svg)
+
 ## Purpose
 
 `arch-bootstrap` is designed to run after `arch-installer`.
