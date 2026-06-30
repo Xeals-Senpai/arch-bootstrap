@@ -1,4 +1,4 @@
-name: Validate Observability Lab
+name: Validate Arch Bootstrap
 
 on:
   push:
@@ -14,19 +14,19 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Validate Prometheus Docker Compose
-        run: docker compose -f prometheus/docker-compose.yml config
+      - name: Install ShellCheck
+        run: sudo apt-get update && sudo apt-get install -y shellcheck
 
-      - name: Validate Grafana Docker Compose
-        run: docker compose -f grafana/docker-compose.yml config
-
-      - name: Validate Prometheus config
+      - name: Check Bash syntax
         run: |
-          docker run --rm \
-            -v "$PWD/prometheus:/etc/prometheus" \
-            prom/prometheus:latest \
-            promtool check config /etc/prometheus/prometheus.yml
+          find . -type f -name "*.sh" -print0 | xargs -0 -r bash -n
 
-      - name: Validate Grafana dashboard JSON
+      - name: Run ShellCheck
         run: |
-          python -m json.tool grafana/dashboards/windows-dashboard.json > /dev/null
+          find . -type f -name "*.sh" -print0 | xargs -0 -r shellcheck
+
+      - name: Validate required files
+        run: |
+          test -f README.md
+          test -f bootstrap.sh
+          test -d modules
